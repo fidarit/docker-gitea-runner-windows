@@ -31,6 +31,7 @@ RUN choco install -y visualstudio2022buildtools --package-parameters \" \
 
 # Add MSBuild to the path
 RUN [Environment]::SetEnvironmentVariable(\"Path\", $env:Path + \";C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\", \"Machine\")
+RUN [Environment]::SetEnvironmentVariable(\"Path\", $env:Path + \";C:\Program Files\Git\usr\bin\", \"Machine\")
 
 ARG RUNNER_VERSION="0.2.11"
 ADD https://gitea.com/gitea/act_runner/releases/download/v$RUNNER_VERSION/act_runner-$RUNNER_VERSION-windows-amd64.exe act_runner.exe
