@@ -1,1 +1,0 @@
-Invoke-WebRequest -Uri "https://gitea.com/gitea/act_runner/releases/download/v$env:RUNNER_VERSION/act_runner-$env:RUNNER_VERSION-windows-amd64.exe" -OutFile "act_runner.exe"
