@@ -35,5 +35,8 @@ RUN [Environment]::SetEnvironmentVariable(\"Path\", $env:Path + \";C:\Program Fi
 ARG RUNNER_VERSION="0.2.11"
 ADD https://gitea.com/gitea/act_runner/releases/download/v$RUNNER_VERSION/act_runner-$RUNNER_VERSION-windows-amd64.exe act_runner.exe
 
+RUN New-Item -ItemType Directory -Force -Path "C:\actions-runner\data" | Out-Null
+VOLUME C:/actions-runner/data
+
 COPY entrypoint.ps1 .
 ENTRYPOINT ["pwsh.exe", ".\\entrypoint.ps1"]
