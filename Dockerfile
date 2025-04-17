@@ -15,7 +15,6 @@ RUN .\install-choco.ps1; Remove-Item .\install-choco.ps1 -Force
 # Install dependencies with Chocolatey
 RUN choco install -y \
     git \
-    gh \
     powershell-core \
     docker-cli \
     python \
