@@ -1,2 +1,1 @@
-Invoke-WebRequest -Uri "https://github.com/actions/runner/releases/download/v$env:RUNNER_VERSION/actions-runner-win-x64-$env:RUNNER_VERSION.zip" -OutFile "actions-runner.zip"
-Expand-Archive -Path ".\\actions-runner.zip" -DestinationPath '.'
+Invoke-WebRequest -Uri "https://gitea.com/gitea/act_runner/releases/download/v$env:RUNNER_VERSION/act_runner-$env:RUNNER_VERSION-windows-amd64.exe" -OutFile "act_runner.exe"
