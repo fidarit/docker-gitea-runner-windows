@@ -21,14 +21,14 @@ RUN choco install -y \
     gh \
     powershell-core \
     docker-cli \
-    python
+    python \
+	nodejs
 
 RUN choco install -y visualstudio2022buildtools --package-parameters \" \
     --quiet --norestart \
     --add Microsoft.VisualStudio.Workload.VisualStudioExtensionBuildTools \
     --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools \
     --add Microsoft.NetCore.Component.SDK \
-    --add Microsoft.Net.Component.4.6.1.TargetingPack \
     --add Microsoft.Net.Component.4.8.TargetingPack \
     \"
 
