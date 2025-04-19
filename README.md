@@ -14,3 +14,27 @@ The build images can be found on [Docker Hub](https://hub.docker.com/r/fidarit/g
 | `GITEA_RUNNER_REGISTRATION_TOKEN` | The format of the registration token is a random string D0gvfu2iHfUjNqCYVljVyRV14fISpJxxxxxxxxxx. |
 | `GITEA_RUNNER_LABELS`             | A comma separated string to indicate the labels. Default is 'windows:host'                        |
 | `GITEA_INSTANCE_URL`              | URL of the Gitea server e.g gitea.mycompany.com.                                                  |
+
+
+## docker-compose.yml example
+
+```yml
+volumes:
+  runner_cache: {}
+  runner_packages_cache: {}
+
+services:
+  runner:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      GITEA_INSTANCE_URL: "http://myhost.mycompany.com:8080"
+      GITEA_RUNNER_REGISTRATION_TOKEN: "abcdefghijklmnopqrstuvwxyz0123456789ABCD"
+      GITEA_RUNNER_NAME: "windows-docker"
+      GITEA_RUNNER_LABELS: "windows:host,windows-latest:host"
+    volumes:
+      - .\data:c:\actions-runner\data
+      - runner_cache:c:\users\ContainerAdministrator\.cache
+      - runner_packages_cache:c:\users\ContainerAdministrator\.nuget\packages
+```

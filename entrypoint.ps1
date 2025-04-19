@@ -13,7 +13,7 @@ try {
 	Push-Location "data"
 	
 	# Check if runner is already registered
-    if (-not (Test-Path -Path "data/.runner")) {
+    if (-not (Test-Path -Path ".runner")) {
         Write-Host "Configuring new runner: $GITEA_RUNNER_NAME"
 		../act_runner.exe register --no-interactive --instance $GITEA_INSTANCE_URL --token $GITEA_RUNNER_REGISTRATION_TOKEN --name $GITEA_RUNNER_NAME --labels $LABELS
     }
